@@ -1,0 +1,31 @@
+
+<div class="container">
+  <h3>
+    Exercise form
+  </h3>
+  <form [formGroup]="myForm" autocomplete="off" novalidate>
+    <div class="form-field">
+        <label for="">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+        <!-- INSERISCO IL MESSAGGIO DI VALIDAZIONE -->
+        <div *ngIf="myForm.controls.name.errors && (myForm.controls.name?.dirty || myForm.controls.name?.touched)">
+          <div class="alert alert-danger" *ngIf="myForm.controls.title.errors?.required">This field is mandatory</div>
+        </div>
+    </div>
+    <div class="form-field">
+      <label for="">Email</label>
+      <input type="text" class="form-control" [formControl]="email">
+      <div *ngIf="myForm.controls.email.errors && (myForm.controls.email?.dirty || myForm.controls.email?.touched)">
+        <div class="alert alert-danger" *ngIf="myForm.controls.email.errors?.required || myForm.controls.email.errors?.pattern">Fill properly the field</div>
+      </div>
+    </div>
+    <div class="form-field">
+        <label for="">Password</label>
+        <textarea formControlName="description" class="form-control" name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="form-field">
+        <button class="btn btn-primary" type="submit">Create Lesson</button>
+    </div>
+  </form>
+</div>
+

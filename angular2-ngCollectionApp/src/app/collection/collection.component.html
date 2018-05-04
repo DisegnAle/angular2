@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let pippo of collectedItems">
+        <button class="btn btn-danger" (click)="onRemoveFromCollection(pippo)">Remove from collection</button>
+         <span>{{pippo.description}}</span>
+         <span class="badge">{{pippo.type}}</span> 
+      </li>
+    </ul>
+  </div>
+    <h4 *ngIf="collectedItems.length == 0">Please add an item to the collection!</h4>
+</div>

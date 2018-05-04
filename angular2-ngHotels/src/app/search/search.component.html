@@ -1,0 +1,111 @@
+
+<div class="search">
+<div class="container">
+  <h3>
+   Search your hotel
+  </h3>
+  <form [formGroup]="myForm" autocomplete="off" novalidate>
+
+
+    <div class="form-field">
+      <div class="col-md-12">
+        <label for="">Insert your destination</label>
+        <input type="text" class="form-control" formControlName="destination">
+        <!-- INSERISCO IL MESSAGGIO DI VALIDAZIONE -->
+        <div *ngIf="myForm.controls.destination.errors && (myForm.controls.destination?.dirty || myForm.controls.destination?.touched)">
+          <div class="alert alert-danger" *ngIf="myForm.controls.destination.errors?.required">This field is mandatory</div>
+        </div>
+      </div> 
+    </div>
+
+
+    <div class="form-field">
+      <div class="col-md-6">
+        <label for="">Arrival</label>
+        <input type="date" class="form-control" formControlName="arrival">
+        <div *ngIf="myForm.controls.arrival.errors && (myForm.controls.arrival?.dirty || myForm.controls.arrival?.touched)">
+          <div class="alert alert-danger" *ngIf="myForm.controls.arrival.errors?.required">Fill properly the field</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="">Departure</label>
+        <input type="date" class="form-control" formControlName="departure">
+        <div *ngIf="myForm.controls.departure.errors && (myForm.controls.departure?.dirty || myForm.controls.departure?.touched)">
+          <div class="alert alert-danger" *ngIf="myForm.controls.departure.errors?.required">Fill properly the field</div>
+        </div>
+      </div>    
+    </div>
+ 
+    <div class="form-field">
+      <div class="col-md-3">
+        <label for="">Rooms Num.</label>
+        <select #t (change)="changeRoom(t.value)" [(ngModel)]="roomsNums" [ngModelOptions]="{standalone: true}" class="form-control" name="" id="">
+          <option [selected]="selectedRoom==1" *ngFor="let room of rooms" [value]="room.value">
+              {{room.value}}
+          </option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <h4>ROOMS N. {{t.value}}</h4>
+       </div>
+
+
+       <div class="col-md-6" *ngFor="let room of rooms | slice:0:roomsNums">
+
+         <div class="col-md-6">
+          <label for="">Adults</label>
+          <select class="form-control" name="" id="">
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+          </select>
+        </div>
+        
+        <div class="col-md-6">
+          <label for="">Children</label>
+         <select #childrenNum (change)="callType(childrenNum.value)"  class="form-control" name="" id="">
+              <option *ngFor="let child of children" [value]="child.value">
+                  {{child.value}}
+              </option>
+          </select>
+
+          <div *ngFor="let child of children | slice:0:childrenNum.value">
+            <select class="form-control" name="" id="child_age">
+            <option value=1>1</option>
+             <option value=2>2</option>
+              <option value=3>3</option>
+               <option value=4>4</option>
+                <option value=5>5</option>
+                 <option value=6>6</option>
+                  <option value=7>7</option>
+                   <option value=8>8</option>
+                    <option value=9>9</option>
+                     <option value=10>10</option>
+                      <option value=11>11</option>
+                       <option value=12>12</option>
+              </select>
+
+          </div> 
+        </div>
+        
+      </div>
+
+
+    </div>
+ 
+
+    <div class="form-field">
+        <div class="col-md-3  col-md-offset-6"> 
+          <button (click)="reset()" class="btn btn-danger" type="submit">Reset</button>
+        </div>
+         <div class="col-md-3"> 
+          <button routerLink="/heroes" [disabled]="!myForm.valid" class="btn btn-primary"  type="submit">Search</button>
+        </div>
+    </div>
+  </form>
+</div>
+</div>
+
+
+

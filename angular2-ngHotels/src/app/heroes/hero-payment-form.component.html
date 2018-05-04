@@ -1,0 +1,38 @@
+<form>
+
+    <table>
+        <td>
+            <tr>
+                <select placeholder="Visa" [(ngModel)]="selectedValue" name="card">
+                    <option *ngFor="let card of cards" [value]="card.value">
+                    {{card.viewValue}}
+                    </option>
+                </select>
+
+                <p> Credit Card: {{selectedValue}} </p>
+            </tr>
+        </td>
+    </table>
+
+
+    <table class="summary-full-width" cellspacing="0"><tr>
+        <td><md-input-container class="summary-full-width">
+        <input type="number" md-input placeholder="Card Holder's name*">
+        </md-input-container></td>
+        <td><md-input-container class="summary-full-width">
+        <input type="number" md-input placeholder="Card number*">
+        </md-input-container></td>
+    </tr></table>
+
+    <table class="summary-full-width" cellspacing="0"><tr>
+        <td><md-input-container style="margin-bottom: 5px;" id="md-arrival" class="summary-full-width">
+        <input type="month" md-input placeholder="Expiry date">
+        </md-input-container></td>
+        <td><md-input-container class="summary-full-width">
+        <input type="number" md-input placeholder="Cvv*">
+        </md-input-container></td>
+    </tr></table>
+
+   
+
+</form>

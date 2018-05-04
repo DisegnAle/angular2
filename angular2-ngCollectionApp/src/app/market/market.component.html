@@ -1,0 +1,12 @@
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let pippo of collectables">
+         <button class="btn btn-success" (click)="onAddToCollection(pippo)">Add to collection</button> 
+         <span>{{pippo.description}}</span>
+        <span class="badge">{{pippo.type}}</span>      
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+
+.header{
+    background: transparent;
+}
+
+.alert{margin: 10px 0px;}
+
+.btn-primary,.btn-danger{width: 100%;}
+
+.form-field {
+    display: block;
+    overflow: hidden;
+    margin: 10px 0px;
+}
+
+.search {
+    height: 100%;
+    padding: 50px;
+    background-repeat:no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: url('/assets/images/searchBg.jpg')
+}
+.search>.container{
+    background: rgba(0, 0, 0, 0.39);
+    padding: 20px 20px;
+    margin-top: 50px;
+    border-radius: 4px;
+}
+
+.search>.container h3, .search>.container h4, form label{
+        color: white;
+}
+
+#child_age{
+    margin-top: 15px
+}
+
+
+
+
+
+

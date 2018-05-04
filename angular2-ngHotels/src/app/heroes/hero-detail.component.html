@@ -1,0 +1,152 @@
+
+<!-- 
+    INCOMPLETO...
+    <read-more [text]="details" [maxHeight]="250">TEST</read-more>     
+-->
+
+
+<div *ngIf="hero" class="container">
+
+   
+
+    <div class="small-12 medium-4 large-3 columns hide-for-small">
+        <div class="ratingfactorsection">
+
+            <div style="position:relative;">
+                <a id="reviewsUrl" href="http://www.hostelworld.com/hosteldetails.php/Les-Piaules/Paris/100113/reviews?dateFrom=2017-01-07&amp;dateTo=2017-01-11&amp;number_of_guests=2">
+
+                    <div class="microsite_rating clearfix ">
+                        <div class="ratingbox">
+                            {{hero.stars}}
+                        </div>
+
+                        <div class="ratingdetails">
+                            <span class="ratingword">Stars</span>
+                        </div>
+                    </div>
+
+                </a>
+            </div>
+
+            <ul class="small-block-grid-1 medium-block-grid-1 large-block-grid-1 ratingbreakdownlist">
+                <li class="ratingfactor">
+                    <span class="ratingfactoricon rediconbg"><i class="fa fa-map-marker fa-flip-horizontal rounded"></i></span>
+                    <span class="ratingfactorlabel">Wonderful <b>Location</b></span>
+                </li>
+
+                <li class="ratingfactor">
+                    <span class="ratingfactoricon greeniconbg"><i class="fa fa-user fa-flip-horizontal rounded"></i></span>
+                    <span class="ratingfactorlabel">Superb <b>Staff</b></span>
+                </li>
+
+                <li class="ratingfactor">
+                    <span class="ratingfactoricon blueiconbg"><i class="fa fa-magic fa-rotate-180 rounded"></i></span>
+                    <span class="ratingfactorlabel">Fantastic <b>Cleanliness</b></span>
+                </li>
+            </ul>
+
+            <div style="border-bottom: 1px dotted #ccc;"></div>
+        </div>
+
+    </div>
+
+    <div class="small-12 medium-8 large-9 columns left-column">
+
+        <div class="ta-hrp-container clearfix">
+            <div class="ta-hrp-message">
+                <b>{{hero.address}}</b>
+            </div>
+            <p>{{hero.description}}</p>
+        </div>
+
+
+        <div class="section-propertytext">
+            <h2>{{ hero.name }}</h2>
+            <div class="prop-intro" style="word-wrap: break-word;">
+
+                <div class="microdetailstext hiddentext prop-text bigtext " style="word-wrap: break-word;">
+                    {{hero.descriptionComplete | truncate:200:'...'}}
+                </div>
+                <a href="#" class="lessbutton" style="display: none;"> Show less</a>
+                <a href="#" class="morebutton"> Show more</a>
+            </div>
+        </div>
+
+        <div class="noselect gallerycontainer">
+
+
+
+            <div class="clearing-assembled">
+                <div class=""><a href="#" class="clearing-close">Close photos ×</a>
+                    <div class="visible-img" style="display: none;">
+                        <div class="clearing-touch-label" style="margin-left: 0px; margin-top: -270px;"></div><img src="//ucd.hwstatic.com/propertyimages/1/100113/5011.jpg" alt="" style="visibility: visible; margin-left: -391px; margin-top: -260px;">
+                        <p class="clearing-caption" style="display: none;"></p><a href="#" class="clearing-main-prev"><span></span></a><a href="#" class="clearing-main-next"><span></span></a></div>
+                    <div id="buttonscontainer" style="display: none;">
+                        <div id="buttonswrapper">
+                            <a href="#" class="button tiny radius back_to_microsite">Back to hostel</a>
+                            <a href="#availability" class="button tiny radius check_prices_link">Check Prices</a>
+                        </div>
+                    </div>
+                    <div class="carousel">
+                        <ul class="clearing-thumbs no-bullet inline-list thumblist">
+                            <a *ngFor="let image of hero.images" class="thumbnail fancybox slide" rel="ligthbox" href="{{image.url}}">
+                            <img  [src]="image.url"/>
+                            </a>                             
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Rooms</th>
+        <th>Price</th>
+        <th>Make your choose </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let room of hero.rooms">
+        <td>
+            <p class="roomnamelink"><b>{{room.title}}</b></p>
+            <span class="roominfo">{{room.description}}</span>
+            <p class="bedcount">
+                 N. Guests: {{room.guestNum}}
+            </p>
+            <p class="xorly">
+                Only {{room.roomsLeft}} rooms left!
+            </p>
+        </td>
+
+        <td>
+             <span class="averageprice currency" id="currency_454334_0_avg" data-tooltip="" aria-haspopup="true" title=""><b>{{room.price | currency:'USD':true}}</b></span>             
+        </td>
+
+        <td>
+            <div class="guestbox">
+                <button (click)="onSelectRoom(hero)" class="moreinfo button tiny radius hwta-property-link">Choose</button>        
+            </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+   
+</div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+

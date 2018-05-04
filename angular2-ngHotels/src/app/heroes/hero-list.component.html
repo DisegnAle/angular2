@@ -1,0 +1,120 @@
+<div class="fixedfilters">
+    <div class="container">
+        <div class="col-md-4">
+            <input [(ngModel)]="term" class="form-control" type="text" placeholder="Search hotel by name">
+        </div>
+        <div class="col-md-5 col-md-offset-3">
+           <ul class="flexbox no-bullet filterlist"> 
+            <li>Sort by:</li>
+            <li (onclick)="changePrice()" class="filteritems">
+                <a href="">
+                    <i class="fa fa-usd" aria-hidden="true"></i>
+                    <span>Price</span>
+                </a>  
+            </li>
+             <li class="filteritems">
+                <a href="">
+                    <i class="fa fa-wifi" aria-hidden="true"></i>
+                    <span>Facilities</span>
+                </a>  
+            </li>
+              <li class="filteritems">
+                <a href="">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <span>Ratings</span>
+                </a>  
+            </li>
+            </ul>
+           </div> 
+        </div>
+</div>
+
+
+<div class="container">
+
+
+
+
+  <ul class="no-bullet">
+    <li [attr.id]="hero.id" *ngFor="let hero of heroes | async | searchPipe:term | orderBy : ['+']">
+        <div class="fabresult  rounded clearfix hwta-property">
+
+            <div class="col-md-3 galleryholder">
+                <li class="rounded">
+                    <img [src]="hero.mainImage" />
+                </li>
+            </div>
+
+            <div class="resultheader rounded col-md-9">
+                <div class="proptype featureline">
+                    Hotel
+                </div>
+                <!-- link hotel dettaglio -->
+                <h2><a style="cursor: initial" href="" class="hwta-property-link">{{hero.name}}</a></h2>
+
+                <div class="addressline">{{hero.address}} <i class="fa fa-location-arrow"></i>{{hero.distance}}km</div>
+                <span>Stars</span>
+                <div class="fabresult-details-rating">
+                    <a style="cursor: initial" href="#" class="ratingbox">{{hero.stars}}</a>
+                    <!--<div class="ratingdetails">
+                        <span class="ratingword">Fabulous </span>
+                        <a href="http://www.hostelworld.com/hosteldetails.php/Les-Piaules/Paris/100113/reviews?dateFrom=2017-01-07&amp;dateTo=2017-01-11&amp;number_of_guests=2" class="fabresult-reviews-count"> <i class="fa fa-comment-o"></i> 1137 </a>
+                    </div>-->
+                </div>
+                <div class="icon_freewifi"><i class="fa fa-wifi"></i> Free WiFi</div>
+                <div class="mobileprice hwta-property-link">
+                    <a href="">
+                 €23.00
+            </a>
+                </div>
+
+            </div>
+            <div class="fabresult-details small-12 medium-8 large-5 large-offset-3 medium-offset-0 small-offset-0 columns">
+
+                <p class="show-for-medium-up">{{hero.description}} <!--  <a href="" class="hwta-property-link">More...</a></p> -->
+
+                <!-- <div class="show-for-medium-up compare">
+                    <input type="checkbox" id="comparecheckbox100113" class="comparecheckbox" style="display: none; visibility: visible;">
+                    <a id="#comparecheckbox100113" class="bigcheckbox fa fa-square-o" style="display: block;"></a>
+                    <label class="show-compare-modal">Compare</label>
+                </div>-->
+
+            </div>
+
+            <div class="fabresult-prices small-12 medium-8 large-4 columns clearfix">
+                <ul class="no-bullet pricingheader">
+                    <li><span class="forminputlabel priceheader">Price</span> <span class="forminputlabel">Room Type</span></li>
+                </ul>
+
+                <ul class="pricing no-bullet">
+                    <li class="dormprice clearfix">
+                        <span class="price">
+                    <a class="dormroom" href="">
+                        {{hero.averagePrice | currency:'USD':true}}
+                    </a>
+                </span>
+                        <a href="" class="hwta-property-link">Average Price</a>
+                    </li>
+                    <li class="singleprice clearfix">
+                        <span class="price">
+                        <a class="privateroom hwta-property-link" href="">
+                            {{hero.totalPrice | currency:'USD':true}}
+                        </a>
+                    </span>
+                        <a href="" class="hwta-property-link">Total Price</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <button (click)="onSelect(hero)" class="moreinfo button tiny radius hwta-property-link">View</button> 
+        </div>
+
+
+        
+    </li>
+  </ul>
+
+</div>
+
+  

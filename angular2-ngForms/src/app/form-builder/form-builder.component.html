@@ -1,0 +1,22 @@
+<div class="container">
+  <h3>
+    Form Builder Form
+  </h3>
+  <form [formGroup]="myForm" autocomplete="off" novalidate>
+    <div class="form-field">
+        <label for="">Title</label>
+        <input type="text" class="form-control" formControlName="title">
+    </div>
+    <div class="form-field">
+      <label for="">Duration</label>
+      <input type="text" class="form-control" formControlName="duration">
+    </div>
+    <div class="form-field">
+        <label for="">Description</label>
+        <textarea formControlName="description" class="form-control" name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="form-field">
+        <button class="btn btn-primary" type="submit">Create Lesson</button>
+    </div>
+  </form>
+</div>
